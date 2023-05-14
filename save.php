@@ -14,7 +14,9 @@ if ($conn->connect_error) {
 $sql = "INSERT INTO product VALUES ($ProductID, '$ProductName', '$ProductDesc', $ProductPrice)";
 
 if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
+  //echo "New record created successfully";
+  $conn->close();
+  header("Location: index.php");
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
